@@ -172,5 +172,5 @@ Definition of the different states and their transition (transition functions)
 - Game - gameOver
 - Player - create
 - Player - directions
-- Enemy - create
-- Enemy - check if still in screen
+- Enemies - create
+- Enemies - check if they are still in the screen
