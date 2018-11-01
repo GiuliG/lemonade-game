@@ -97,7 +97,7 @@ function main() {
     gameOverScreen = buildDOM(`
       <main>
         <h1>Game Over</h1>
-        <p>Oh no! You lost the game. But don't worry, if life gives you lemons, make lemonade, find someone whose life has given them vodka and...make a party! Alternatively, restart the game.</p>
+        <p>Oh no! You lost the game. But don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party! Alternatively, restart the game.</p>
         <button>Restart</button>
       </main>  
     `);
