@@ -73,6 +73,7 @@ Game.prototype.startLoop(
 Player(canvas, lives) {
   self.x
   self.y
+  self.lives
   self.direction 0
   self.size
   self.speed
@@ -90,28 +91,12 @@ Player.prototype.draw()
 ```
 ### enemy.js
 ```javascript
-Enemy 1 Type (canvas, x, speed) {
+Enemy 2 Type (canvas, x, strength) {
   self.x
   self.y
   self.direction 0
   self.size
-  self.speed
-  self.canvas
-  self.ctx
-}
-
-Enemy.prototype.update()
-Enemy.prototype.draw()
-Enemy.prototype.isInScreen()
-
-
-
-Enemy 2 Type (canvas, x, speed) {
-  self.x
-  self.y
-  self.direction 0
-  self.size
-  self.speed
+  self.strength
   self.canvas
   self.ctx
 }
@@ -156,7 +141,7 @@ Definition of the different states and their transition (transition functions)
 - Main - Start Game
 - Main - destroy Game
 - Main - GameOver
-- Main - GameOver RESTART
+- Main - GameOver restart
 - Main - removeGameOver
 
 
@@ -170,7 +155,9 @@ Definition of the different states and their transition (transition functions)
 - Game - collision + remove
 - Game - lives 
 - Game - gameOver
+
 - Player - create
 - Player - directions
+
 - Enemies - create
 - Enemies - check if they are still in the screen
