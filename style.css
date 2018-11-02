@@ -1,0 +1,111 @@
+/* ---- reset ---- */
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  /* ---- typography ---- */
+  
+  body {
+    color: #272c2f;
+    font-family: 'FuturaBT-Book',sans-serif;;
+    font-size: 20px;
+    font-weight: 300;
+    background-image: url('images/background-citrus-close-up-1343537.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  h1 {
+    font-family: 'FuturaBT-Heavy',sans-serif;
+    font-size: 45px;
+    font-weight: 100;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  h2 {}
+  
+  h3 {}
+  
+  p {
+    margin: 0;
+  }
+   
+  li{
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding-inline-start: 0px;
+
+   }
+  
+  
+  /* ---- layout ---- */
+  
+  #site-header {
+    padding: 30px 0;
+    color: white;
+    background: #111;
+  }
+  
+  #site-footer {
+    color: white;
+    padding: 60px 0;
+    background: #111;
+  }
+  
+  #site-main {
+    margin-bottom: 60px;
+  }
+  
+  .container {
+    margin: 0 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+  
+  @media (min-width: 786px) {
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+  
+  
+  
+  
+  /* ---- components ---- */
+  
+  .button {
+    width: 100%;
+    background-color: blue;
+    color: #fff;
+    border: 1px solid #fff
+  }
+  
+  .button-alt {
+    color: blue;
+    background-color: #fff;
+  }
+
+  .header {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      
+  }
+  
+  /* ---- section ---- */
+  

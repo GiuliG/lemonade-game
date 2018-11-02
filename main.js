@@ -25,11 +25,14 @@ function main() {
   function buildSplash() {
     splashScreen = buildDOM(`
       <main>
-        <h1>When Life Gives You Lemons...Make Lemonade</h1>
-       
-        <div class="rules">You are Gigi and your task is to catch lemons (+1p) and sugar (+2ps) to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.<br> Ready? Hit play!</div>
-        <button>Start</button>
-        <div class="enemies-list"><p>Know Your Enemies:</p>
+      <div class="header container">
+          <h1><strong>When Life Gives You Lemons...<br>Make Lemonade</strong></h1>
+       </div>
+        <div class="rules container">You are Gigi and your task is to catch lemons (+1p) and sugar (+2ps) to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.<br> Ready? Hit play!</div>
+        <div class="container">
+        <button >Start</button>
+        </div>
+        <div class="enemies-list container"><p>Know Your Enemies:</p>
         <ul>
         <li><img>
         Mother-in-Law: Watch out for her! She will reduce your (life) energy.</li>
