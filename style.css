@@ -55,12 +55,25 @@ html {
        max-width: 100%;
    }
 
-  
+  button {
+    background-color: #ffffff;
+    color: #272c2f;
+    border-radius: 10px 4px;
+    width: 50%;
+    padding: 19px 40px 20px;
+    display: block;
+    text-align: center;
+    max-width: 767px;
+    margin: 20px 0;
+    text-decoration:none;
+    text-transform: uppercase;
+  }
   /* ---- layout ---- */
   
    main.game {
        display: flex;
        justify-content: center;
+       background-color: white;
    }
 
   #site-header {
