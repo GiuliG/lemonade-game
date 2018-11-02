@@ -3,7 +3,7 @@
 function buildDOM(html) {
   var div = document.createElement('div');
   div.innerHTML = html;
-  return div.children[0];
+  return div.children[0]; // this means we are adding our blocks inside the body of the HTML
 }
 
 function main() {
@@ -13,9 +13,11 @@ function main() {
   var gameOverScreen;
   var startButton;
   var restartButton;
+  var pauseButton;
   var livesElement;
   var scoreElement;
-  
+  var intervalId;
+  var timerElement;
 
   // the  homepage
   function buildSplash() {
@@ -61,6 +63,7 @@ function main() {
       <div id = "nav-game">
         <p class="lives">No. of lives: 3</p>
         <p class="score">Score: </p>  
+        <p>timeLeft:<span class="time"></span> </p>  
         <div class="buttons">
           <div class="pause">
             <button class="button">Pause Game</button>
@@ -74,15 +77,29 @@ function main() {
 
     var canvasElement = document.querySelector('canvas');
     livesElement = document.querySelector('p.lives');
-
+    scoreElement = document.querySelector('p.score');
+    
+    var timeLeft = 3;
+    timerElement = document.querySelector('.time');
+    var intervalId = setInterval(function(){
+      timerElement.innerText = timeLeft;
+      timeLeft --;
+      if (timeLeft < 0){
+        clearInterval(intervalId);
+        destroyGameScreen()
+      }
+    }, 1000)
   }
+  
+  
+    
 
   function updateLives(lives) {
     livesElement.innerText = lives;
   }
 
   function updateScore(score) {
-    livesElement.innerText = score;
+    scoreElement.innerText = score;
   }
 
   // remove game screen and move to game over
@@ -97,7 +114,7 @@ function main() {
     gameOverScreen = buildDOM(`
       <main>
         <h1>Game Over</h1>
-        <p>Oh no! You lost the game. But don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party! Alternatively, restart the game.</p>
+        <p>Oh no! You lost the game. But don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
         <button>Restart</button>
       </main>  
     `);
