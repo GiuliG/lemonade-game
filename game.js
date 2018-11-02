@@ -20,7 +20,19 @@ Game.prototype.start = function() {
 }
 
 Game.prototype.startLoop = function() {
+    //this.player = new Player(this.canvasElement, this.initialPositionPlayer);
+  
+    var handleKeyUp = function(event) {
+      if (event.key === 'ArrowRight') {
+        this.player.setDirection(-1);
+      } else if (event.key === 'ArrowLeft') {
+        this.player.setDirection(1);
+      }
+    }.bind(this)
     
+    document.addEventListener('keyup', this.handleKeyUp);
+
+
     var loop = function() {
         this.updateAll();
         this.clearAll();
@@ -33,8 +45,11 @@ Game.prototype.startLoop = function() {
         }.bind(this);
   // this loop runs once, but the others are called continuously (look at requestAnimationFrame)      
     loop();
-    
   }
+
+
+
+  
 
   Game.prototype.updateAll = function() {
     // check the player
@@ -49,10 +64,3 @@ Game.prototype.startLoop = function() {
   Game.prototype.drawAll = function() {
     // this.player.draw();
   }
-  
-
-  
-
-
-
-  
