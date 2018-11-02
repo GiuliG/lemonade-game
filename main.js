@@ -64,7 +64,7 @@ function main() {
   // game page
   function buildGameScreen() {
     gameScreen = buildDOM(`
-      <main>
+      <main class="game">
       <div id = "nav-game" class="container">
         <p class="lives">No. of lives: 3</p>
         <p class="score">Score: </p>  

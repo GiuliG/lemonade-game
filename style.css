@@ -50,9 +50,19 @@ html {
 
    }
   
+   canvas {
+       border: 1px solid black;
+       max-width: 100%;
+   }
+
   
   /* ---- layout ---- */
   
+   main.game {
+       display: flex;
+       justify-content: center;
+   }
+
   #site-header {
     padding: 30px 0;
     color: white;

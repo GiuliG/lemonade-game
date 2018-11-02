@@ -7,26 +7,25 @@ function Game(canvasElement) {
     this.player = null;
     this.enemies = [];
     this.initialPositionPlayer = {
-    x: this.canvasElement.height / 2,
-    y: 0
+    x: this.canvasElement.width/2,
+    y: this.canvasElement.height-30
   }
   this.gameIsOver = false;
 }
 
 // game methods
 Game.prototype.start = function() {
-    this.ctx.fillRect(10, 10, 100, 50);
     this.startLoop();
 }
 
 Game.prototype.startLoop = function() {
-    //this.player = new Player(this.canvasElement, this.initialPositionPlayer);
+    this.player = new Player(this.canvasElement, this.initialPositionPlayer);
   
-    var handleKeyUp = function(event) {
+    this.handleKeyUp = function(event) {
       if (event.key === 'ArrowRight') {
-        this.player.setDirection(-1);
-      } else if (event.key === 'ArrowLeft') {
         this.player.setDirection(1);
+      } else if (event.key === 'ArrowLeft') {
+        this.player.setDirection(-1);
       }
     }.bind(this)
     
@@ -52,15 +51,13 @@ Game.prototype.startLoop = function() {
   
 
   Game.prototype.updateAll = function() {
-    // check the player
-    
-    // this.player.update(); 
+    this.player.update(); 
   }
   
   Game.prototype.clearAll = function() {
-   // this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+   this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
   }
   
   Game.prototype.drawAll = function() {
-    // this.player.draw();
+    this.player.draw();
   }
