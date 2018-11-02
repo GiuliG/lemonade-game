@@ -65,7 +65,7 @@ function main() {
   function buildGameScreen() {
     gameScreen = buildDOM(`
       <main>
-      <div id = "nav-game">
+      <div id = "nav-game" class="container">
         <p class="lives">No. of lives: 3</p>
         <p class="score">Score: </p>  
         <p>timeLeft: <span class="time"> </span> </p>  
@@ -84,7 +84,7 @@ function main() {
     livesElement = document.querySelector('p.lives');
     scoreElement = document.querySelector('p.score');
     
-    var timeLeft = 30;
+    var timeLeft = 3;
     timerElement = document.querySelector('.time');
     var intervalId = setInterval(function(){
       timerElement.innerText = timeLeft;
@@ -124,7 +124,7 @@ function main() {
   //  game over page
   function buildGameOverScreen() {
     gameOverScreen = buildDOM(`
-      <main>
+      <main class="container">
         <h1>Game Over</h1>
         <p>Oh no! You lost the game. But don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
         <button>Restart</button>

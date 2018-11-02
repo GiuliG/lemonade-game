@@ -23,6 +23,7 @@ html {
     background-image: url('images/background-citrus-close-up-1343537.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+
   }
   
   h1 {
@@ -88,7 +89,9 @@ html {
   
   
   /* ---- components ---- */
-  
+ 
+    
+
   .button {
     width: 100%;
     background-color: blue;
