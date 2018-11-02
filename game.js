@@ -21,7 +21,7 @@ Game.prototype.start = function() {
 Game.prototype.startLoop = function() {
     this.player = new Player(this.canvasElement, this.initialPositionPlayer);
   
-    this.handleKeyUp = function(event) {
+    this.handleKeyDown = function(event) {
       if (event.key === 'ArrowRight') {
         this.player.setDirection(1);
       } else if (event.key === 'ArrowLeft') {
@@ -29,14 +29,18 @@ Game.prototype.startLoop = function() {
       }
     }.bind(this)
     
-    document.addEventListener('keyup', this.handleKeyUp);
+    document.addEventListener('keyup', this.handleKeyDown);
 
 
     var loop = function() {
         this.updateAll();
         this.clearAll();
         this.drawAll();
-
+        
+        if (Math.random() > 0.96) {
+            this.enemies.push(new Enemy(this.canvasElement));
+          }
+      
         if (!this.gameIsOver) {
             requestAnimationFrame(loop);
             }
@@ -52,12 +56,21 @@ Game.prototype.startLoop = function() {
 
   Game.prototype.updateAll = function() {
     this.player.update(); 
+    this.enemies.forEach(function(enemy) {
+        enemy.update();
+      })
   }
   
   Game.prototype.clearAll = function() {
    this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+   this.enemies = this.enemies.filter(function(enemy) {
+    return enemy.isInCanvas();
+  });
   }
   
   Game.prototype.drawAll = function() {
     this.player.draw();
+    this.enemies.forEach(function(enemy) {
+        enemy.draw();
+      })
   }
