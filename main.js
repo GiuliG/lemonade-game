@@ -18,6 +18,8 @@ function main() {
   var scoreElement;
   var intervalId;
   var timerElement;
+  var canvasElement;
+  var game;
 
   // the  homepage
   function buildSplash() {
@@ -63,7 +65,7 @@ function main() {
       <div id = "nav-game">
         <p class="lives">No. of lives: 3</p>
         <p class="score">Score: </p>  
-        <p>timeLeft:<span class="time"></span> </p>  
+        <p>timeLeft: <span class="time"> </span> </p>  
         <div class="buttons">
           <div class="pause">
             <button class="button">Pause Game</button>
@@ -75,11 +77,11 @@ function main() {
 
     document.body.prepend(gameScreen);
 
-    var canvasElement = document.querySelector('canvas');
+    canvasElement = document.querySelector('canvas');
     livesElement = document.querySelector('p.lives');
     scoreElement = document.querySelector('p.score');
     
-    var timeLeft = 3;
+    var timeLeft = 30;
     timerElement = document.querySelector('.time');
     var intervalId = setInterval(function(){
       timerElement.innerText = timeLeft;
@@ -89,10 +91,17 @@ function main() {
         destroyGameScreen()
       }
     }, 1000)
-  }
-  
-  
     
+    game = new Game(canvasElement);
+    game.start(); 
+  
+
+
+  }
+
+  function destroyGame() {
+    game.destroy();
+  }  
 
   function updateLives(lives) {
     livesElement.innerText = lives;
