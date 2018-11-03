@@ -42,11 +42,12 @@ Game.prototype.startLoop = function() {
 
 
     var loop = function() {
+        this.checkAllCollisions();
         this.updateAll();
         this.clearAll();
         this.drawAll();
         
-        if (Math.random() > 0.96) {
+        if (Math.random() > 0.98) {
             this.enemies.push(new Enemy(this.canvasElement));
           }
       
@@ -59,9 +60,6 @@ Game.prototype.startLoop = function() {
     loop();
   }
 
-
-
-  
 
   Game.prototype.updateAll = function() {
     this.player.update(); 
@@ -88,13 +86,11 @@ Game.prototype.startLoop = function() {
   this.enemies.forEach(function(enemy, index) {
     if (this.player.collidesWithEnemy(enemy)) {
       this.player.lives--;
-      this.lostLive(this.player.lives);
-      this.enemies.splice(index, 1);
+      //this.lostLive(this.player.lives);
 
-      if (!this.player.lives) {
-        this.gameIsOver = true;
-        this.finishGame();
-      }
+      
     }
   }.bind(this)); 
 }
+
+

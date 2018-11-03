@@ -13,11 +13,11 @@ function Player(canvasElement, initialPosition) {
 
 Player.prototype.setDirection = function(direction) {
     this.direction = direction;
-  }
+}
 
 Player.prototype.draw = function() {
     this.ctx.fillRect(this.x, this.y - this.size / 2, this.size, this.size)
-  }
+}
 
 
 Player.prototype.update = function() {
@@ -29,27 +29,45 @@ Player.prototype.update = function() {
     if (this.x >= this.canvasElement.width - this.size / 2) {
       this.setDirection(-1);
     }
-  
     this.x += this.speed * this.direction;
-  }
+};
+
   
   Player.prototype.setDirection = function(direction) {
     this.direction = direction;
-  }
+};
 
-  /*Player.prototype.collidesWithEnemy = function(enemy) {
-
-    var collidesTop = this.y - this.size / 2 < enemy.y + enemy.size / 2;
-    var collidesBottom = this.y + this.size / 2 > enemy.y - enemy.size / 2;
-    var collidesRight = this.x + this.size / 2 > enemy.x - enemy.size / 2;
-    var collidesLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
+  Player.prototype.collidesWithEnemy = function(enemy) {
     
+    const collidesRight = enemy.y <=(this.y + this.size);
+    const collidesLeft = enemy.x + enemy.size >= this.x;
+    const collidesTop = enemy.y + enemy.size >= this.y;
+    const collidesBottom = enemy.x <= this.x + this.size;
+
+    return collidesRight && collidesBottom && collidesTop && collidesLeft;
+};
+
+
+    Player.prototype.lemonsSweet = function (enemy) {
+    const collidesRight = enemy.y <=(this.y + this.size);
+    const collidesLeft = enemy.x + enemy.size >= this.x;
+    const collidesTop = enemy.y + enemy.size >= this.y;
+    const collidesBottom = enemy.x <= this.x + this.size;
+
     if (collidesLeft && collidesRight && collidesTop && collidesBottom) {
         return true;
-    }
+}
     
     return false;
-    
-  }
-  */
+};
+
+Player.prototype.collidedLemonsSweet = function (item) {
+    if (item.includes('sugar')) {
+        this.lives += 2;
+    } else {
+        this.lives++;
+    }
+};
+
+  
   
