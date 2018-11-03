@@ -5,7 +5,7 @@ function Player(canvasElement, initialPosition) {
   this.y = initialPosition.y;
   this.size = 20;
   this.lives = 3;
-  this.speed = 3;
+  this.speed = 4;
   this.direction = 0;
   this.canvasElement = canvasElement;
   this.ctx = this.canvasElement.getContext('2d');
@@ -36,4 +36,20 @@ Player.prototype.update = function() {
   Player.prototype.setDirection = function(direction) {
     this.direction = direction;
   }
+
+  /*Player.prototype.collidesWithEnemy = function(enemy) {
+
+    var collidesTop = this.y - this.size / 2 < enemy.y + enemy.size / 2;
+    var collidesBottom = this.y + this.size / 2 > enemy.y - enemy.size / 2;
+    var collidesRight = this.x + this.size / 2 > enemy.x - enemy.size / 2;
+    var collidesLeft = this.x - this.size / 2 < enemy.x + enemy.size / 2;
+    
+    if (collidesLeft && collidesRight && collidesTop && collidesBottom) {
+        return true;
+    }
+    
+    return false;
+    
+  }
+  */
   

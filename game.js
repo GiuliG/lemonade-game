@@ -21,6 +21,14 @@ Game.prototype.start = function() {
 Game.prototype.startLoop = function() {
     this.player = new Player(this.canvasElement, this.initialPositionPlayer);
   
+    this.handleKeyUp = function(event) {
+        if (event.key === 'ArrowRight') {
+          this.player.setDirection(0);
+        } else if (event.key === 'ArrowLeft') {
+          this.player.setDirection(0);
+        }
+      }.bind(this);
+
     this.handleKeyDown = function(event) {
       if (event.key === 'ArrowRight') {
         this.player.setDirection(1);
@@ -29,7 +37,8 @@ Game.prototype.startLoop = function() {
       }
     }.bind(this)
     
-    document.addEventListener('keyup', this.handleKeyDown);
+    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keyup', this.handleKeyUp);
 
 
     var loop = function() {
@@ -74,3 +83,18 @@ Game.prototype.startLoop = function() {
         enemy.draw();
       })
   }
+
+  Game.prototype.checkAllCollisions = function() {
+  this.enemies.forEach(function(enemy, index) {
+    if (this.player.collidesWithEnemy(enemy)) {
+      this.player.lives--;
+      this.lostLive(this.player.lives);
+      this.enemies.splice(index, 1);
+
+      if (!this.player.lives) {
+        this.gameIsOver = true;
+        this.finishGame();
+      }
+    }
+  }.bind(this)); 
+}

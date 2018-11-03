@@ -4,6 +4,7 @@ function Enemy(canvasElement) {
     this.size = 10;
     this.canvasElement = canvasElement;
     this.ctx = this.canvasElement.getContext('2d');
+    // I want my enemies to start from the top left
     this.y = 0;
     this.x = Math.floor(Math.random() * this.canvasElement.width);
   }
