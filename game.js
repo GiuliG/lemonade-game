@@ -10,7 +10,7 @@ function Game(canvasElement) {
     this.lives = 3;
     this.initialPositionPlayer = {
     x: this.canvasElement.width/2,
-    y: this.canvasElement.height-30
+    y: this.canvasElement.height - 100
   }
   this.gameIsOver = false;
 }
@@ -49,7 +49,7 @@ Game.prototype.startLoop = function() {
         this.clearAll();
         this.drawAll();
         
-        if (Math.random() > 0.98) {
+        if (Math.random() > 0.96) {
             this.enemies.push(new Enemy(this.canvasElement));
           }
       

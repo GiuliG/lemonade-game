@@ -81,7 +81,7 @@ function main() {
             <button class="button">Pause Game</button>
           </div>
         </div>    
-        <canvas width="640px" height="480px"></canvas>   
+        <canvas width="900px" height="500px"></canvas>   
       </main>
     `);
 

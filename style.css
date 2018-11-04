@@ -103,7 +103,7 @@ html {
   
   @media (min-width: 786px) {
     .container {
-        max-width: 90%;
+        max-width: 95%;
         margin: 0 auto;
     }
 }
@@ -116,10 +116,7 @@ html {
     
 
   .button {
-    width: 100%;
-    background-color: blue;
-    color: #fff;
-    border: 1px solid #fff
+    
   }
   
   .button-alt {
