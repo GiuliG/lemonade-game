@@ -5,6 +5,7 @@ function Player(canvasElement, initialPosition, image) {
   this.y = initialPosition.y;
   this.size = 50;
   this.lives = 3;
+  this.score = 0;
   this.speed = 5;
   this.direction = 0;
   this.canvasElement = canvasElement;
@@ -44,7 +45,6 @@ Player.prototype.update = function() {
 
 // remove lives if collides with enemy
 Player.prototype.collided = function (enemy) {
-    
     this.lives--;
 };
 
@@ -56,7 +56,9 @@ Player.prototype.collided = function (enemy) {
     const collidesTop = enemy.y + enemy.size >= this.y;
     const collidesBottom = enemy.x <= this.x + this.size;
 
-    return collidesRight && collidesBottom && collidesTop && collidesLeft;
+    if (collidesRight && collidesBottom && collidesTop && collidesLeft) {
+        return true
+    } else return false;
 };
 
 // collision with good characters
@@ -75,9 +77,9 @@ Player.prototype.collided = function (enemy) {
 
 Player.prototype.collidedLemonsSweet = function (item) {
     if (item.src.includes('sugar')) {
-        this.lives += 2;
+        this.score += 2;
     } else if (item.src.includes('lemon')) {
-        this.lives++;
+        this.score++;
     } else {
         this.lives --;
     }

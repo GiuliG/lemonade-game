@@ -88,6 +88,7 @@ function main() {
     document.body.prepend(gameScreen);
 
     canvasElement = document.querySelector('canvas');
+    //lives can be found here
     livesElement = document.querySelector('p.lives');
     scoreElement = document.querySelector('p.score');
     
@@ -101,17 +102,15 @@ function main() {
         destroyGameScreen()
       }
     }, 1000)
+
     
     game = new Game(canvasElement);
     game.start(); 
-  
-
+    // game.onGameOverCallback(destroyGameScreen);
+    // game.onLiveLost(updateLives);
 
   }
 
-  function destroyGame() {
-    game.destroy();
-  }  
 
   function updateLives(lives) {
     livesElement.innerText = lives;

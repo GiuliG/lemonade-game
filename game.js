@@ -87,11 +87,26 @@ Game.prototype.startLoop = function() {
   Game.prototype.checkAllCollisions = function() {
   this.enemies.forEach(function(enemy, index) {
     if (this.player.collidesWithEnemy(enemy)) {
-      this.player.lives --;
+      this.player.score --;
       this.enemies.splice(index, 1);
 
     }
   }.bind(this)); 
 }
 
+
+/*
+Game.prototype.onGameOverCallback = function(callback) {
+    this.gameOverCallback = callback;
+  }
+
+
+Game.prototype.onLiveLost = function(callback) {
+    this.lostLive = callback;
+  }
+  
+Game.prototype.finishGame = function() {
+    this.gameOverCallback();
+  }
+*/
 
