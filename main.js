@@ -16,7 +16,6 @@ function main() {
   var pauseButton;
   var livesElement;
   var scoreElement;
-  var intervalId;
   var timerElement;
   var canvasElement;
   var game;

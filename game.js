@@ -5,7 +5,9 @@ function Game(canvasElement) {
     this.canvasElement = canvasElement;
     this.ctx = this.canvasElement.getContext('2d');
     this.player = null;
+    this.score = 0;
     this.enemies = [];
+    this.lives = 3;
     this.initialPositionPlayer = {
     x: this.canvasElement.width/2,
     y: this.canvasElement.height-30
@@ -85,10 +87,9 @@ Game.prototype.startLoop = function() {
   Game.prototype.checkAllCollisions = function() {
   this.enemies.forEach(function(enemy, index) {
     if (this.player.collidesWithEnemy(enemy)) {
-      this.player.lives--;
-      //this.lostLive(this.player.lives);
+      this.player.lives --;
+      this.enemies.splice(index, 1);
 
-      
     }
   }.bind(this)); 
 }
