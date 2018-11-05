@@ -22,7 +22,6 @@ function main() {
   function buildSplash() {
     splashScreen = buildDOM(`
     <main>
-    
       <div class="header">
         <div class="container">
             <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
@@ -34,16 +33,11 @@ function main() {
           <div class="container">
             <button >Start</button>
           </div>
-          <div class="container">
-            <p>Make lemonades and earn points:</p>
-            <ul>
-              <img src="./images/lemon.png">
-                <li>Lemons: they give you 1 point.</li>
-                <li><img src="./images/sugar.png">
-                <li>sugar: it makes your life sweeter, plus 2 points.</li>
-            </ul>
+        <div>&nbsp;
         </div>
-      </div>
+        <footer>
+        <p>Powered by Life</p>
+        </footer>
      
     </main>
     `)
@@ -69,13 +63,15 @@ function main() {
       <main class="game">
       
         <div id = "nav-game" class="container">
-          <div class="score">
+          <div class="text-game">
             <img src="./images/lemonade.png">
             <p>No. of lemonades:</p>
             
-            <p class="score">0 </p>   
+            <p class="score text-game">0 </p>   
           </div>  
+          <div class="outisde-canvas">
         <canvas width="900px" height="500px"></canvas> 
+        </div>
       </main>
     `);
 
@@ -133,9 +129,12 @@ function main() {
       <main >
       <div class="container">
         <h1>Game Over</h1>
-        <p>Oh no! You lost the game. <br>Don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
+        <p class="rules">Oh no! You lost the game. <br>Don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
         <button>Restart</button>
       </div>
+      <footer>
+        <p>Powered by Life</p>
+        </footer>
       </main>  
     `);
 
