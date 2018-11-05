@@ -2,7 +2,7 @@
 
 ## Description
 When life gives you lemons, make lemonade!
-You are Gigi and your task is to catch lemons and sugar cubes to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.
+Your task is to catch lemons and sugar cubes to make amazing lemonades. The player cannot have a negative score; this means that when your score reaches 0, the game is over.
 
 
 ## MVP (DOM - CANVAS)
