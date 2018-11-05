@@ -17,6 +17,7 @@ function main() {
   var scoreElement;
   var canvasElement;
   var game;
+  
 
   // the  homepage
   function buildSplash() {
@@ -33,8 +34,11 @@ function main() {
           <div class="container">
             <button >Start</button>
           </div>
+          <audio class="soundtrack"><source type="audio/mpeg" /></audio>
+
         <div>&nbsp;
         </div>
+        
         <footer>
         <p>Powered by Life</p>
         </footer>
@@ -50,6 +54,12 @@ function main() {
    
   }
 
+  // I added line 60 to 76 plus the video thing in the HTML
+
+  
+
+
+
   // remove the hompegae and replace it with the one from the game
   function destroySplash() {
     splashScreen.remove();
@@ -61,16 +71,13 @@ function main() {
   function buildGameScreen() {
     gameScreen = buildDOM(`
       <main class="game">
-      
-        <div id = "nav-game" class="container">
-          <div class="text-game">
-            <img src="./images/lemonade.png">
-            <p>No. of lemonades:</p>
-            
-            <p class="score text-game">0 </p>   
+        <div class="wrapper">
+            <div class="text-game">
+                <img src="./images/lemonade.png">
+                <p><strong>No. of lemonades:</strong></p>
+                <p class="score text-game"><strong>0</strong> </p>   
           </div>  
-          <div class="outisde-canvas">
-        <canvas width="900px" height="500px"></canvas> 
+          <canvas width="900px" height="500px"></canvas> 
         </div>
       </main>
     `);

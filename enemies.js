@@ -1,7 +1,7 @@
 'use strict';
 
 function Enemy(canvasElement, type) {
-    this.size = 20;
+    this.size = 50;
     this.canvasElement = canvasElement;
     this.enemyImage = new Image();
     this.typeOfChar = [
