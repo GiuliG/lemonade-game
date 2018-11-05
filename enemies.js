@@ -19,9 +19,21 @@ function Enemy(canvasElement, type) {
         image: './images/orange.png', 
         name: 'orange',
         points: -1
+      },
+      
+      {
+        image: "./images/Cherry.png", 
+        name: 'cherry',
+        points: -1
+      },
+
+      {
+        image: "./images/green.png", 
+        name: 'apple',
+        points: -1
       }
     ];
-    this.enemiesChoices = ["./images/lemon.png","./images/sugar.png","./images/orange.png"];
+    this.enemiesChoices = ['./images/lemon.png','./images/sugar.png','./images/orange.png','./images/Cherry.png','./images/green.png'];
     this.enemyImage.src = this.getRandomImage();
     this.ctx = this.canvasElement.getContext('2d');
     // I want my enemies to start from the top left

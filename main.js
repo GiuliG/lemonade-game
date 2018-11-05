@@ -13,10 +13,8 @@ function main() {
   var gameOverScreen;
   var startButton;
   var restartButton;
-  var pauseButton;
   var livesElement;
   var scoreElement;
-  var timerElement;
   var canvasElement;
   var game;
 
@@ -32,20 +30,11 @@ function main() {
       </div>
 
       
-        <div class="rules container">Catch the lemons and sugar to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.<br> Ready? Hit play!</div>
+        <div class="rules container">Catch the lemons and sugar to make amazing lemonades. Watch out for other fruits! <br> Ready? Hit play!</div>
           <div class="container">
             <button >Start</button>
           </div>
           <div class="container">
-            <p>Know Your Enemies:</p>
-            <ul>
-              <li><img src="">
-                Mother-in-Law: Watch out for her! She will reduce your energy, -1 life.</li>
-              <li><img src="">
-                Your Boss: s/he reduces your score by 1 point.</li>
-              <li><img src="./images/orange.png">
-                Oranges: they are lemons in disguise. They will reduce your score by 1 point.</li>
-            </ul>
             <p>Make lemonades and earn points:</p>
             <ul>
               <img src="./images/lemon.png">
@@ -55,6 +44,7 @@ function main() {
             </ul>
         </div>
       </div>
+     
     </main>
     `)
 
@@ -63,6 +53,7 @@ function main() {
     startButton = document.querySelector('button');
 
     startButton.addEventListener('click', destroySplash);
+   
   }
 
   // remove the hompegae and replace it with the one from the game
@@ -76,15 +67,15 @@ function main() {
   function buildGameScreen() {
     gameScreen = buildDOM(`
       <main class="game">
-      <div id = "nav-game" class="container">
-        <p class="lives">No. of lives:<span> 3</span></p>
-        <p class="score">Score: </p>   
-        <div class="buttons">
-          <div class="pause">
-            <button class="button">Pause Game</button>
-          </div>
-        </div>    
-        <canvas width="900px" height="500px"></canvas>   
+      
+        <div id = "nav-game" class="container">
+          <div class="score">
+            <img src="./images/lemonade.png">
+            <p>No. of lemonades:</p>
+            
+            <p class="score">0 </p>   
+          </div>  
+        <canvas width="900px" height="500px"></canvas> 
       </main>
     `);
 
@@ -93,7 +84,9 @@ function main() {
     canvasElement = document.querySelector('canvas');
     //lives can be found here
     livesElement = document.querySelector('.lives');
-    scoreElement = document.querySelector('.score');
+    scoreElement = document.querySelector('p.score');
+
+    
     
     /*var timeLeft = 30;
     timerElement = document.querySelector('.time');
@@ -113,6 +106,7 @@ function main() {
     game.onGameOverCallback(destroyGameScreen);
     game.onLiveLost(updateLives);
     game.onPoints(updateScore);
+    
 
   }
 
@@ -137,9 +131,11 @@ function main() {
   function buildGameOverScreen() {
     gameOverScreen = buildDOM(`
       <main >
+      <div class="container">
         <h1>Game Over</h1>
-        <p>Oh no! You lost the game. But don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
+        <p>Oh no! You lost the game. <br>Don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
         <button>Restart</button>
+      </div>
       </main>  
     `);
 

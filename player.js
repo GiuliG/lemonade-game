@@ -69,17 +69,6 @@ Player.prototype.collided = function (enemy) {
     return collidesLeft && collidesRight && collidesTop && collidesBottom
 };
 
-/*Player.prototype.collidedLemonsSweet = function (item) {
-    if (item.src.includes('sugar')) {
-        console.log('hit by friend');
-        this.score += 2;
-    } else if (item.src.includes('lemon')) {
-        this.score ++;
-    } else {
-        0;
-    }
-};
-*/
 
 
   

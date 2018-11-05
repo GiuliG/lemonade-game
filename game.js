@@ -41,6 +41,7 @@ Game.prototype.startLoop = function() {
     
     document.addEventListener('keydown', this.handleKeyDown);
     document.addEventListener('keyup', this.handleKeyUp);
+    
 
 
     var loop = function() {
@@ -49,7 +50,7 @@ Game.prototype.startLoop = function() {
         this.clearAll();
         this.drawAll();
         
-        if (Math.random() > 0.96) {
+        if (Math.random() > 0.94) {
             this.enemies.push(new Enemy(this.canvasElement));
           }
       
@@ -95,7 +96,7 @@ Game.prototype.startLoop = function() {
         //this.lostLive(this.player.lives);
         this.enemies.splice(index, 1);
   
-        if (!this.player.score) {
+        if (this.player.score <= 0) {
           this.gameIsOver = true;
           this.finishGame();
         }
@@ -119,5 +120,7 @@ Game.prototype.startLoop = function() {
     this.gameOverCallback();
   }
 
+
+ 
 
   
