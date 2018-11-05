@@ -16,13 +16,16 @@ html {
   /* ---- typography ---- */
   
   body {
-    color: #272c2f;
+    color: #000000;
     font-family: 'FuturaBT-Book',sans-serif;;
     font-size: 20px;
     font-weight: 300;
-    background-image: url('images/background-citrus-close-up-1343537.jpg');
+    text-align: left;
+    background-image: url('./images/background-citrus-close-up-1343537.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+
+    
 
   }
   
@@ -30,8 +33,10 @@ html {
     font-family: 'FuturaBT-Heavy',sans-serif;
     font-size: 45px;
     font-weight: 100;
-    color: #ffffff;
+    color: #F0F3F4;
     text-align: left;
+    
+  
   }
   
   h2 {}
@@ -51,8 +56,11 @@ html {
    }
   
    canvas {
-       border: 1px solid black;
        max-width: 100%;
+       background-image: url('./images/IMG-20181105-WA0000.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+
    }
 
   button {
@@ -68,6 +76,8 @@ html {
     text-decoration:none;
     text-transform: uppercase;
   }
+
+  
   /* ---- layout ---- */
   
    main.game {
@@ -100,6 +110,18 @@ html {
     margin-bottom: 20px;
     padding-top: 20px;
   }
+
+#video-background {
+    /*  making the video fullscreen  */
+      position: fixed;
+      right: 0; 
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 100%;
+      width: auto; 
+      height: auto;
+      z-index: -100;
+  }
   
   @media (min-width: 786px) {
     .container {
@@ -125,10 +147,10 @@ html {
   }
 
   .header {
-      padding-top: 20px;
-      padding-bottom: 30px;
-      
+    
+    height: 500px;
+    padding-top: 100px;
+
   }
-  
   /* ---- section ---- */
   

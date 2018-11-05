@@ -73,9 +73,12 @@ Game.prototype.startLoop = function() {
   Game.prototype.clearAll = function() {
    this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
    this.enemies = this.enemies.filter(function(enemy) {
-    return enemy.isInCanvas();
+    return enemy.isInScreen();
   });
   }
+
+
+
   
   Game.prototype.drawAll = function() {
     this.player.draw();
@@ -85,28 +88,36 @@ Game.prototype.startLoop = function() {
   }
 
   Game.prototype.checkAllCollisions = function() {
-  this.enemies.forEach(function(enemy, index) {
-    if (this.player.collidesWithEnemy(enemy)) {
-      this.player.score --;
-      this.enemies.splice(index, 1);
+    this.enemies.forEach(function(enemy, index) {
+      if (this.player.collidesWithEnemy(enemy)) {
+        var score = this.player.score += enemy.points;
+        this.updateScore(score);
+        //this.lostLive(this.player.lives);
+        this.enemies.splice(index, 1);
+  
+        if (!this.player.score) {
+          this.gameIsOver = true;
+          this.finishGame();
+        }
+      }
+    }.bind(this)); 
+  }
 
-    }
-  }.bind(this)); 
-}
-
-
-/*
-Game.prototype.onGameOverCallback = function(callback) {
+  Game.prototype.onGameOverCallback = function(callback) {
     this.gameOverCallback = callback;
   }
-
-
-Game.prototype.onLiveLost = function(callback) {
+  
+  Game.prototype.onLiveLost = function(callback) {
     this.lostLive = callback;
   }
+
+  Game.prototype.onPoints = function(callback) {
+    this.updateScore = callback;
+  }
   
-Game.prototype.finishGame = function() {
+  Game.prototype.finishGame = function() {
     this.gameOverCallback();
   }
-*/
 
+
+  

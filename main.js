@@ -23,35 +23,39 @@ function main() {
   // the  homepage
   function buildSplash() {
     splashScreen = buildDOM(`
-      <main>
-      <div class="header container">
-          <h1><strong>When Life Gives You Lemons...<br>Make Lemonade</strong></h1>
-       </div>
-        <div class="rules container">You are Gigi and your task is to catch lemons and sugar to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.<br> Ready? Hit play!</div>
+    <main>
+    
+      <div class="header">
         <div class="container">
-        <button >Start</button>
+            <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
         </div>
-        <div class="enemies container"><p>Know Your Enemies:</p>
-        <ul>
-        <li><img src="">
-        Mother-in-Law: Watch out for her! She will reduce your energy, -1 life.</li>
-        <li><img src="">
-        Your Boss: s/he reduces your score by 1 point.</li>
-        <li><img src="">
-        Oranges: they are lemons in disguise. They will reduce your score by 1 point.</li>
+      </div>
 
-        <div class="lemonsSweet container"><p>Make lemonades and earn points:</p>
-        <ul>
-        <img src="./images/lemon.png">
-        <li>Lemons: they give you 1 point.</li>
-        <li><img src="./images/sugar.png">
-        <li>sugar: it makes your life sweeter, plus 2 points.</li>
+      
+        <div class="rules container">Catch the lemons and sugar to make amazing lemonades. Some enemies will try to make your goal harder: they will either steal points from you or reduce your (life) energy. The player cannot have a negative score and has three lives only. This means that when your life and score reach 0, the game is over.<br> Ready? Hit play!</div>
+          <div class="container">
+            <button >Start</button>
+          </div>
+          <div class="container">
+            <p>Know Your Enemies:</p>
+            <ul>
+              <li><img src="">
+                Mother-in-Law: Watch out for her! She will reduce your energy, -1 life.</li>
+              <li><img src="">
+                Your Boss: s/he reduces your score by 1 point.</li>
+              <li><img src="./images/orange.png">
+                Oranges: they are lemons in disguise. They will reduce your score by 1 point.</li>
+            </ul>
+            <p>Make lemonades and earn points:</p>
+            <ul>
+              <img src="./images/lemon.png">
+                <li>Lemons: they give you 1 point.</li>
+                <li><img src="./images/sugar.png">
+                <li>sugar: it makes your life sweeter, plus 2 points.</li>
+            </ul>
         </div>
-
-
-        </ul>
-        </div>
-      </main>
+      </div>
+    </main>
     `)
 
     document.body.prepend(splashScreen);
@@ -73,9 +77,8 @@ function main() {
     gameScreen = buildDOM(`
       <main class="game">
       <div id = "nav-game" class="container">
-        <p class="lives">No. of lives: 3</p>
-        <p class="score">Score: </p>  
-        <p>timeLeft: <span class="time"> </span> </p>  
+        <p class="lives">No. of lives:<span> 3</span></p>
+        <p class="score">Score: </p>   
         <div class="buttons">
           <div class="pause">
             <button class="button">Pause Game</button>
@@ -89,10 +92,10 @@ function main() {
 
     canvasElement = document.querySelector('canvas');
     //lives can be found here
-    livesElement = document.querySelector('p.lives');
-    scoreElement = document.querySelector('p.score');
+    livesElement = document.querySelector('.lives');
+    scoreElement = document.querySelector('.score');
     
-    var timeLeft = 30;
+    /*var timeLeft = 30;
     timerElement = document.querySelector('.time');
     var intervalId = setInterval(function(){
       timerElement.innerText = timeLeft;
@@ -102,24 +105,27 @@ function main() {
         destroyGameScreen()
       }
     }, 1000)
+    */
 
     
     game = new Game(canvasElement);
     game.start(); 
-    // game.onGameOverCallback(destroyGameScreen);
-    // game.onLiveLost(updateLives);
+    game.onGameOverCallback(destroyGameScreen);
+    game.onLiveLost(updateLives);
+    game.onPoints(updateScore);
 
   }
 
-
+//update lives
   function updateLives(lives) {
     livesElement.innerText = lives;
   }
-
+// update score
   function updateScore(score) {
     scoreElement.innerText = score;
   }
 
+  
   // remove game screen and move to game over
   function destroyGameScreen() {
     gameScreen.remove();
