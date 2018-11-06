@@ -17,6 +17,7 @@ function main() {
   var scoreElement;
   var canvasElement;
   var game;
+  var audioElement;
   
 
   // the  homepage
@@ -34,7 +35,7 @@ function main() {
           <div class="container">
             <button >Start</button>
           </div>
-          <audio class="soundtrack"><source type="audio/mpeg" /></audio>
+        
 
         <div>&nbsp;
         </div>
@@ -54,7 +55,6 @@ function main() {
    
   }
 
-  // I added line 60 to 76 plus the video thing in the HTML
 
   
 
@@ -79,6 +79,7 @@ function main() {
           </div>  
           <canvas width="900px" height="500px"></canvas> 
         </div>
+       
       </main>
     `);
 
@@ -109,6 +110,7 @@ function main() {
     game.onGameOverCallback(destroyGameScreen);
     game.onLiveLost(updateLives);
     game.onPoints(updateScore);
+
     
 
   }

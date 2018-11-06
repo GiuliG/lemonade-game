@@ -6,7 +6,7 @@ function Player(canvasElement, initialPosition, image) {
   this.size = 100;
   this.lives = 3;
   this.score = 0;
-  this.speed = 5;
+  this.speed = 6;
   this.direction = 0;
   this.canvasElement = canvasElement;
   this.character = new Image();
