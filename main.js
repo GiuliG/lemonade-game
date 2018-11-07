@@ -17,7 +17,7 @@ function main() {
   var scoreElement;
   var canvasElement;
   var game;
-  var audioElement;
+  var messageElement;
   
 
   // the  homepage
@@ -41,7 +41,7 @@ function main() {
         </div>
         
         <footer>
-        <p>Powered by Life</p>
+        <p>Powered by Life Events</p>
         </footer>
      
     </main>
@@ -50,17 +50,21 @@ function main() {
     document.body.prepend(splashScreen);
 
     startButton = document.querySelector('button');
+ 
 
     startButton.addEventListener('click', destroySplash);
    
   }
 
 
-  
+ // audio
+
+ 
+ 
 
 
 
-  // remove the hompegae and replace it with the one from the game
+  // remove the hompage and replace it with the one from the game
   function destroySplash() {
     splashScreen.remove();
     startButton.removeEventListener('click', destroySplash);
@@ -75,7 +79,10 @@ function main() {
             <div class="text-game">
                 <img src="./images/lemonade.png">
                 <p><strong>No. of lemonades:</strong></p>
-                <p class="score text-game"><strong>0</strong> </p>   
+                <p class="score text-game"><strong>0</strong> </p>
+              
+                <p class="message"></p>  
+                 
           </div>  
           <canvas width="900px" height="500px"></canvas> 
         </div>
@@ -89,7 +96,7 @@ function main() {
     //lives can be found here
     livesElement = document.querySelector('.lives');
     scoreElement = document.querySelector('p.score');
-
+    messageElement = document.querySelector('.message');
     
     
     /*var timeLeft = 30;
@@ -110,10 +117,12 @@ function main() {
     game.onGameOverCallback(destroyGameScreen);
     game.onLiveLost(updateLives);
     game.onPoints(updateScore);
-
-    
+    game.messageSend(updateMessage);
 
   }
+
+
+
 
 //update lives
   function updateLives(lives) {
@@ -123,6 +132,18 @@ function main() {
   function updateScore(score) {
     scoreElement.innerText = score;
   }
+
+// update message
+function updateMessage (message) {
+  messageElement.innerText = message;
+  messageElement.classList.add('show');
+  setTimeout(function(){
+    messageElement.classList.remove('show');
+  },2000);
+
+}
+
+
 
   
   // remove game screen and move to game over
@@ -142,7 +163,7 @@ function main() {
         <button>Restart</button>
       </div>
       <footer>
-        <p>Powered by Life</p>
+        <p>Powered by Life Events</p>
         </footer>
       </main>  
     `);

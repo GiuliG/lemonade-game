@@ -1,8 +1,8 @@
 'use strict';
 
-function Enemy(canvasElement, typeofChar) {
+function Enemy(canvasElement, speed) {
     this.size = 50;
-    this.speed = 4;
+    this.speed = speed;
     this.canvasElement = canvasElement;
     this.enemyImage = new Image();
     this.typeOfChar = [
