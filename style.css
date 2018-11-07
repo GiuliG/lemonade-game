@@ -16,10 +16,10 @@ html {
   /* ---- typography ---- */
   
   body {
-    font-family: 'FuturaBT-Book',sans-serif;;
+    font-family: 'FuturaBT-Book',sans-serif;
     font-size: 20px;
     font-weight: 300;
-    text-align: left;
+    text-align: center;
     background-color:#F5EE9E;
   }
   
@@ -29,23 +29,35 @@ html {
     font-weight: 100;
     color: #3B8EA5;
     padding-top: 80px;
-    text-align: left;
-    width: 50%;
+    text-align: center;
+
+    
 
   
   }
   
-  h2 {}
+  h2 {
+    font-family: 'FuturaBT-Heavy',sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    color: #3B8EA5;
+    padding-top: 10px;
+    text-align: center;
+    
+  }
   
   h3 {}
   
   p {
     margin: 0;
+    text-align: center;
+    font-family: 'FuturaBT-Book',sans-serif;
+    color: #3B8EA5;
   }
    
   li{
     list-style-type: none;
-    text-align: left;
+    text-align: center;
     margin: 0;
     padding-inline-start: 0px;
 
@@ -68,7 +80,7 @@ html {
     border-color: #3B8EA5;
     color: #ffffff;
     border-radius: 10px 4px;
-    width: 50%;
+    width: 100%;
     padding: 19px 40px 20px;
     display: block;
     text-align: center;
@@ -91,9 +103,9 @@ html {
   /* ---- layout ---- */
   
    main.game {
-       display: flex;
-       justify-content: center;
-       background-color: white;
+    display: flex;
+    justify-content: center;
+    background-color: white;
    }
 
   #site-header {
@@ -143,20 +155,24 @@ html {
   
   /* ---- components ---- */
  
-    .text-game {
-      color: #ffffff;
-      padding-left: 20px;
-      font-family: 'Anton', sans-serif;
-      padding-top: 20px;
-    }
+  .text-game {
+    color: #ffffff;
+    padding-left: 20px;
+    font-family: 'Anton', sans-serif;
+    padding-top: 20px;
+  }
 
-    .rules {
-      color:#3B8EA5;
-      padding: 20px 0;
+  .rules {
+    color:#3B8EA5;
+    padding: 20px 0;
 
-    }
+  }
 
-  
+  p.game-content{
+  text-align: left;
+  }
+
+
   .button-alt {
     color: blue;
     background-color: #fff;
@@ -169,7 +185,7 @@ html {
   }
 
   p.message {
-    background-color: yellow;
+    background-color: #F5EE9E;
     display: inline-block;
     padding: 20px;
     color: black;

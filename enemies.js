@@ -9,29 +9,34 @@ function Enemy(canvasElement, speed) {
       {
         image: './images/lemon.png', 
         name: 'lemon',
-        points: 1
+        points: 1,
+        sound: './music/dustyroom_cartoon_bubble_pop.mp3'
       },
       {
         image: './images/sugar.png',
         name: 'sugar',
-        points: 2
+        points: 2,
+        sound: './music/dustyroom_cartoon_bubble_pop.mp3'
       },
       {
         image: './images/orange.png', 
         name: 'orange',
-        points: -1
+        points: -1,
+        sound: '/music/zapsplat_household_plastic_bucket_empty_set_down_on_wood_floor_001_23069.mp3'
       },
       
       {
         image: "./images/Cherry.png", 
         name: 'cherry',
-        points: -1
+        points: -5,
+        sound: '/music/zapsplat_household_plastic_bucket_empty_set_down_on_wood_floor_001_23069.mp3'
       },
 
       {
         image: "./images/green.png", 
         name: 'apple',
-        points: -1
+        points: -3,
+        sound: '/music/zapsplat_household_plastic_bucket_empty_set_down_on_wood_floor_001_23069.mp3'
       }
     ];
     this.enemiesChoices = ['./images/lemon.png','./images/sugar.png','./images/orange.png','./images/Cherry.png','./images/green.png'];

@@ -15,12 +15,16 @@ function Game(canvasElement) {
     x: this.canvasElement.width/2,
     y: this.canvasElement.height - 100
   }
+    
     this.gameIsOver = false;
-    this.speedEnemies;
+    this.speedEnemies; 
+    this.soundEnemy;
     this.playerSpeed;
     this.levelOneCheck = false;
     this.levelThreeCheck = false;
     this.levelTwoCheck = false;
+    this.soundGood = new Audio('./music/dustyroom_cartoon_bubble_pop.mp3')
+    this.soundBad = new Audio('./music/zapsplat_household_plastic_bucket_empty_set_down_on_wood_floor_001_23069.mp3')
 }
 
 // game methods
@@ -75,7 +79,6 @@ Game.prototype.startLoop = function() {
 
     if (this.level === 3) {
       clearInterval(this.intervalId);
-      console.log('no more')
     }
       
    
@@ -118,21 +121,15 @@ Game.prototype.checkAllCollisions = function() {
       this.score = this.player.score += enemy.points;
       this.updateScore(this.score);
       this.levelTime();
-
-      //this.lostLive(this.player.lives);
       this.enemies.splice(index, 1);
-      
-      /* if (this.player.score === this.levelThresholds[1]){
-        console.log('Congratulations. You have made it to level 2');
-        this.levelTwo();
-    
-      } 
+      if (enemy.points > 0) {
+       this.soundGood.play();
+       this.soundGood.volume = 0.7;
 
-      if (this.score === this.levelThresholds[2] ){
-        console.log('Congratulations. You have made it to level 3');
-        this.levelThree();
-      }
-  */
+      } else {
+        this.soundBad.play();
+        this.soundBad.volume = 0.7;
+        }
 
       if (this.player.score <= 0) {
         this.gameIsOver = true;
@@ -165,14 +162,13 @@ Game.prototype.finishGame = function() {
 
 
 Game.prototype.levelTime = function () {
-  console.log(this.score)
   if(this.score >= 10 && this.score < 20 && !this.levelOneCheck ) {
     this.levelOneCheck = true;
     this.level++;
+    this.playerSpeed = 8;
     this.checkEnemies = 0.96;
     this.speedEnemies = 4;
-    console.log('ciao,livello');
-    this.message = 'Congratulations, you reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached: ' + this.level;
     this.updateMessage(this.message);
 
 } else if (this.score >= 20 && this.score < 30 && !this.levelTwoCheck) {
@@ -180,7 +176,7 @@ Game.prototype.levelTime = function () {
     this.level++;
     this.checkEnemies = 0.93;
     this.speedEnemies = 6;
-    this.message = 'Congratulations, you reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached: ' + this.level;
     this.updateMessage(this.message);
 
 } else if (this.score >= 30 && !this.levelThreeCheck) {
@@ -188,7 +184,7 @@ Game.prototype.levelTime = function () {
     this.level++;
     this.rateEnemies = 0.90;
     this.speedEnemies = 7;
-    this.message = 'Congratulations, you reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached: ' + this.level;
     this.updateMessage(this.message);
 
   } 

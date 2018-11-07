@@ -30,11 +30,14 @@ function main() {
         </div>
       </div>
 
-      
-        <div class="rules container">Catch the lemons and sugar to make amazing lemonades. Watch out for other fruits! <br> Ready? Hit play!</div>
-          <div class="container">
-            <button >Start</button>
-          </div>
+      <div class="container">
+        <h2>What is This?</h2>
+          <p>Lemonade is a game and, above all, a way of life. The aim is to catch the lemons and sugar cubes to make amazing lemonades.  
+          Use the arrows on your keyboard to complete the task. <br> Ready? Hit play!</p>
+      </div>
+      <div class="container">
+        <button >Start</button>
+      </div>
         
 
         <div>&nbsp;
@@ -77,14 +80,19 @@ function main() {
       <main class="game">
         <div class="wrapper">
             <div class="text-game">
-                <img src="./images/lemonade.png">
-                <p><strong>No. of lemonades:</strong></p>
-                <p class="score text-game"><strong>0</strong> </p>
+                <div class="glass">
+                  <img src="./images/lemonade-cartoon-png-1.png">
+                </div>
+                <p class="game-content"><strong>No. of lemonades:</strong></p>
+                <p class="score text-game game-content"><strong>0</strong> </p>
               
                 <p class="message"></p>  
                  
           </div>  
           <canvas width="900px" height="500px"></canvas> 
+         
+
+
         </div>
        
       </main>
