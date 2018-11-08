@@ -168,7 +168,7 @@ Game.prototype.levelTime = function () {
     this.playerSpeed = 8;
     this.checkEnemies = 0.96;
     this.speedEnemies = 4;
-    this.message = 'Congratulations, you\'ve reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached level ' + this.level;
     this.updateMessage(this.message);
 
 } else if (this.score >= 20 && this.score < 30 && !this.levelTwoCheck) {
@@ -176,7 +176,7 @@ Game.prototype.levelTime = function () {
     this.level++;
     this.checkEnemies = 0.93;
     this.speedEnemies = 6;
-    this.message = 'Congratulations, you\'ve reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached level ' + this.level;
     this.updateMessage(this.message);
 
 } else if (this.score >= 30 && !this.levelThreeCheck) {
@@ -184,7 +184,7 @@ Game.prototype.levelTime = function () {
     this.level++;
     this.rateEnemies = 0.90;
     this.speedEnemies = 7;
-    this.message = 'Congratulations, you\'ve reached: ' + this.level;
+    this.message = 'Congratulations, you\'ve reached level ' + this.level;
     this.updateMessage(this.message);
 
   } 
