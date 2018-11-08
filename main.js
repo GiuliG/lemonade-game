@@ -18,52 +18,93 @@ function main() {
   var canvasElement;
   var game;
   var messageElement;
+  var rulesButton;
+  var rulesExpand;
+  var rulesList;
+  var rulesSpan;
   
 
   // the  homepage
   function buildSplash() {
     splashScreen = buildDOM(`
     <main>
-      <div class="header">
+      <div>&nbsp</div>
         <div class="container">
-            <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
-        </div>
-      </div>
-
-      <div class="container">
-        <h2>What is This?</h2>
-          <p>Lemonade is a game and, above all, a way of life. The aim is to catch the lemons and sugar cubes to make amazing lemonades.  
-          Use the arrows on your keyboard to complete the task. <br> Ready? Hit play!</p>
-      </div>
-      <div class="container">
-        <button >Start</button>
-      </div>
         
+          <div>
+            
+                  <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
+          
+          </div>
 
-        <div>&nbsp;
-        </div>
         
+        <h2><strong>What is This?</strong></h2>
+          <p>Lemonade is a game and, above all, a philosophy of life. <br> The aim is to catch the lemons and sugar cubes to make amazing lemonades.  
+          <br> Ready? Hit play!</p>
+      
+
+          <div>
+       
+          
+            <button id="rules-expand">
+              <span>+</span> Learn More
+            </button>
+
+            <button id="rules-collapse" class="hidden">
+              <p>Use the left and right arrows on your keyboard.</p>
+              <p>Try to catch the lemons (+1 point) and sugar cubes (+2 points). </p>
+              <p>Some enemies will try to make the task harder: Apples, oranges and cherries will reduce your score by 3, 2, and 5 points respectively. </p>
+              <p>The game has four levels of difficulty. <br> There is no winning condition but the game is over when you reach 0.</p>
+            </button>
+          
+           
+
+          </div>
+ 
+        
+          <button class="play">Play</button>
+          
+         
+    
+      
+
+
         <footer>
-        <p>Powered by Life Events</p>
+        <p>Powered by Life</p>
         </footer>
+
+        </div> 
+
+        <div>&nbsp</div>
      
     </main>
     `)
 
     document.body.prepend(splashScreen);
 
-    startButton = document.querySelector('button');
- 
-
+    startButton = document.querySelector('.play');
     startButton.addEventListener('click', destroySplash);
-   
+    
+    rulesExpand = document.querySelector('#rules-expand');
+    rulesSpan = document.querySelector('#rules-expand span');
+    rulesList = document.querySelector('#rules-collapse');
+
+    rulesExpand.addEventListener('click', toggleList);
+
+
   }
 
 
- // audio
-
- 
- 
+ // hidden
+function toggleList () {
+  var rules = document.querySelector('#rules-collapse');
+  rules.classList.toggle('hidden');
+  if (rules.classList.contains('hidden')) {
+    rulesSpan.innerText = "+";
+  } else {
+    rulesSpan.innerText = "-";
+  };
+}
 
 
 
@@ -82,10 +123,10 @@ function main() {
             <div class="text-game">
                 <div class="glass">
                   <img src="./images/lemonade-cartoon-png-1.png">
-                </div>
+                
                 <p class="game-content"><strong>No. of lemonades:</strong></p>
                 <p class="score text-game game-content"><strong>0</strong> </p>
-              
+                </div>
                 <p class="message"></p>  
                  
           </div>  
@@ -164,16 +205,15 @@ function updateMessage (message) {
   //  game over page
   function buildGameOverScreen() {
     gameOverScreen = buildDOM(`
-      <main >
+    <main >
+      <div>&nbsp</div>
       <div class="container">
-        <h1>Game Over</h1>
+        <h1><strong>Game Over</strong></h1>
         <p class="rules">Oh no! You lost the game. <br>Don't worry, if life gives you lemons, find someone whose life has given them vodka and...throw a party!<br> Alternatively, restart the game.</p>
         <button>Restart</button>
+      <div>&nbsp</div>
       </div>
-      <footer>
-        <p>Powered by Life Events</p>
-        </footer>
-      </main>  
+    </main>  
     `);
 
     document.body.prepend(gameOverScreen);

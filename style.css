@@ -20,7 +20,10 @@ html {
     font-size: 20px;
     font-weight: 300;
     text-align: center;
-    background-color:#F5EE9E;
+    background-image:url('./images/IMG-20181105-WA0000.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
   }
   
   h1 {
@@ -28,12 +31,11 @@ html {
     font-size: 45px;
     font-weight: 100;
     color: #3B8EA5;
-    padding-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
-
+    background-color: #FEF9E7  ;
     
-
-  
   }
   
   h2 {
@@ -43,6 +45,7 @@ html {
     color: #3B8EA5;
     padding-top: 10px;
     text-align: center;
+    font-weight: 100;
     
   }
   
@@ -77,7 +80,7 @@ html {
 
   button {
     background-color:#3B8EA5;
-    border-color: #3B8EA5;
+    border-color: #00796B;
     color: #ffffff;
     border-radius: 10px 4px;
     width: 100%;
@@ -85,9 +88,30 @@ html {
     display: block;
     text-align: center;
     max-width: 767px;
-    margin: 20px 0;
     text-decoration:none;
     font-size: 20px;
+    display: inline-block;
+  }
+
+  button:hover, #rules-expand:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
+
+  #rules-expand, #rules-collapse {
+    background-color:#3B8EA5;
+    color: #ffffff;
+    padding: 20px 0 10px;
+    margin: 20px 0;
+    position: relative;
+  }
+
+  #rules-collapse p{
+    color: #ffffff;
+  }
+
+  #rules-expand div {
+    display: inline;
   }
 
   footer {
@@ -125,8 +149,11 @@ html {
   }
   
   .container {
-    margin: 0 20px;
-    text-align: left;
+    margin: 0px 20px;
+    text-align: center;
+    overflow: hidden;
+    background-color: #FEF9E7;
+    padding-top:10px;
   }
   
   .section {
@@ -145,7 +172,7 @@ html {
   
   @media (min-width: 786px) {
     .container {
-        max-width: 95%;
+        max-width: 70%;
         margin: 0 auto;
     }
 }
@@ -164,12 +191,17 @@ html {
 
   .rules {
     color:#3B8EA5;
-    padding: 20px 0;
+    padding: 0px 20px 40px 20px;
 
+  }
+
+  .hidden {
+    display: none;
   }
 
   p.game-content{
   text-align: left;
+  color: white;
   }
 
 
@@ -185,7 +217,7 @@ html {
   }
 
   p.message {
-    background-color: #F5EE9E;
+    background-color: #FBC02D;
     display: inline-block;
     padding: 20px;
     color: black;
@@ -196,6 +228,9 @@ html {
     transform: translateX(-50%);
     opacity: 0;
     transition: all 0.3s;
+    font-family: 'FuturaBT-Book',sans-serif;
+    font-size: 18px;
+
  
   }
 
@@ -203,5 +238,26 @@ html {
     opacity:1;
   }
 
+  .learn-more {
+    font-family: 'FuturaBT-Book',sans-serif;
+    color: #00796B ;
+    padding: 30px 0 10px 0;
+    background-color: #00796B;
+    margin: 20px 0;
+    font-size: 18px;
+    
+  }
+
+.flex-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.flex-inline {
+  width: 33%;
+}
   /* ---- section ---- */
   
