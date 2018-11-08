@@ -132,7 +132,7 @@ function toggleList () {
           </div>  
           <canvas width="900px" height="500px"></canvas> 
          
-
+          <audio autoplay="autoplay"><source src="./music/Lemon Tree - Fools Garden (mp3cut.net)-[AudioTrimmer.com].mp3" type="audio/mpeg" /></audio>
 
         </div>
        
@@ -213,6 +213,8 @@ function updateMessage (message) {
         <button>Restart</button>
       <div>&nbsp</div>
       </div>
+      
+
     </main>  
     `);
 
