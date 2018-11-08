@@ -122,7 +122,7 @@ function toggleList () {
         <div class="wrapper">
             <div class="text-game">
                 <div class="glass">
-                  <img src="./images/lemonade-cartoon-png-1.png">
+                  <div>&nbsp;</div>
                 
                 <p class="game-content"><strong>No. of lemonades:</strong></p>
                 <p class="score text-game game-content"><strong>0</strong> </p>

@@ -204,6 +204,9 @@ html {
   color: white;
   }
 
+  .game-content{
+    padding-top: 70px;
+  }
 
   .button-alt {
     color: blue;
