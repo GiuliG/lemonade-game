@@ -271,7 +271,7 @@ div.flex-inline {
 #game-buttons {
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 #game-buttons button {
