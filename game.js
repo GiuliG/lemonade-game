@@ -25,6 +25,8 @@ function Game(canvasElement) {
     this.levelTwoCheck = false;
     this.soundGood = new Audio('./music/dustyroom_cartoon_bubble_pop.mp3')
     this.soundBad = new Audio('./music/zapsplat_household_plastic_bucket_empty_set_down_on_wood_floor_001_23069.mp3')
+    this.rightButtonMobile;
+    this.leftButtonMobile;
 }
 
 // game methods
@@ -53,9 +55,33 @@ Game.prototype.startLoop = function() {
     }
   }.bind(this)
   
+// mobile function
+this.handleClickRight = function(event) {
+    this.player.setDirection(1);
+}.bind(this);
+
+this.handleClickLeft = function(event) {
+  this.player.setDirection(-1);
+}.bind(this);
+
+this.handleTouchEnd = function(event) {
+  this.player.setDirection(0);
+}.bind(this);
+
+
+
   document.addEventListener('keydown', this.handleKeyDown);
   document.addEventListener('keyup', this.handleKeyUp);
+  document.addEventListener('touchend', this.handleTouchEnd);
+
   
+  this.rightButtonMobile = document.querySelector ('.right-mobile-hidden')
+  this.leftButtonMobile = document.querySelector ('.left-mobile-hidden')
+
+  this.rightButtonMobile.addEventListener('touchstart', this.handleClickRight);
+  this.leftButtonMobile.addEventListener('touchstart', this.handleClickLeft);
+
+
   //this.intervalId = setInterval(this.levelTime.bind(this) , 7000);
 
 

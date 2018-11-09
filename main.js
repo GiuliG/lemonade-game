@@ -22,61 +22,35 @@ function main() {
   var rulesExpand;
   var rulesList;
   var rulesSpan;
+
   
 
   // the  homepage
   function buildSplash() {
     splashScreen = buildDOM(`
     <main>
-      <div>&nbsp</div>
         <div class="container">
-        
           <div>
-            
-                  <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
-          
+            <h1><strong>When Life Gives You Lemons,<br>Make Lemonade</strong></h1>
           </div>
-
-        
-        <h2><strong>What is This?</strong></h2>
+          <h2><strong>What is This?</strong></h2>
           <p>Lemonade is a game and, above all, a philosophy of life. <br> The aim is to catch the lemons and sugar cubes to make amazing lemonades.  
           <br> Ready? Hit play!</p>
-      
-
-          <div>
-       
-          
             <button id="rules-expand">
               <span>+</span> Learn More
             </button>
-
             <button id="rules-collapse" class="hidden">
               <p>Use the left and right arrows on your keyboard.</p>
               <p>Try to catch the lemons (+1 point) and sugar cubes (+2 points). </p>
               <p>Some enemies will try to make the task harder: Apples, oranges and cherries will reduce your score by 3, 2, and 5 points respectively. </p>
               <p>The game has four levels of difficulty. <br> There is no winning condition but the game is over when you reach 0.</p>
             </button>
-          
-           
 
-          </div>
- 
-        
           <button class="play">Play</button>
-          
-         
-    
-      
-
-
-        <footer>
-        <p>Powered by Life</p>
-        </footer>
-
-        </div> 
-
-        <div>&nbsp</div>
-     
+          <footer>
+          <p>Powered by Life</p>
+          </footer>
+        </div>      
     </main>
     `)
 
@@ -120,20 +94,17 @@ function toggleList () {
     gameScreen = buildDOM(`
       <main class="game">
         <div class="wrapper">
-            <div class="text-game">
-                <div class="glass">
-                  <div>&nbsp;</div>
-                
-                <p class="game-content"><strong>No. of lemonades:</strong></p>
-                <p class="score text-game game-content"><strong>0</strong> </p>
-                </div>
-                <p class="message"></p>  
-                 
+        <div></div>
+          <div class="text-game">
+            <div class="glass">                
+            <p class="game-content"><strong>No. of lemonades:</strong></p>
+            <p class="score text-game game-content"><strong>0</strong> </p>
+            </div>
+            <p class="message"></p>  
           </div>  
           <canvas width="900px" height="500px"></canvas> 
-         
-         
-
+          <button class="right-mobile-hidden">Right</button>
+          <button class="left-mobile-hidden">Left</button>
         </div>
        
       </main>
@@ -146,7 +117,7 @@ function toggleList () {
     livesElement = document.querySelector('.lives');
     scoreElement = document.querySelector('p.score');
     messageElement = document.querySelector('.message');
-    
+  
     
     /*var timeLeft = 30;
     timerElement = document.querySelector('.time');
@@ -213,7 +184,7 @@ function updateMessage (message) {
         <button>Restart</button>
       <div>&nbsp</div>
       </div>
-      <audio autoplay="autoplay"><source src="./music/Lemon Tree - Fools Garden (mp3cut.net)-[AudioTrimmer.com].mp3" type="audio/mpeg" /></audio>
+     
 
 
     </main>  

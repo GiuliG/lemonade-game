@@ -91,6 +91,7 @@ html {
     text-decoration:none;
     font-size: 20px;
     display: inline-block;
+   
   }
 
   button:hover, #rules-expand:hover {
@@ -126,11 +127,17 @@ html {
   
   /* ---- layout ---- */
   
-   main.game {
-    display: flex;
-    justify-content: center;
-    background-color: white;
-   }
+
+  main{
+    min-height: 100vh;
+  }
+
+  main.game {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  }
 
   #site-header {
     padding: 30px 0;
@@ -153,7 +160,7 @@ html {
     text-align: center;
     overflow: hidden;
     background-color: #FEF9E7;
-    padding-top:10px;
+    padding:15px;
   }
   
   .section {
@@ -166,18 +173,12 @@ html {
   background-image: url('./images/IMG-20181105-WA0000.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 10px;
 }
 
 
   
-  @media (min-width: 786px) {
-    .container {
-        max-width: 70%;
-        margin: 0 auto;
-    }
-}
-  
-  
+ 
   
   
   /* ---- components ---- */
@@ -197,6 +198,10 @@ html {
 
   .hidden {
     display: none;
+  }
+
+  .right-mobile-hidden, .left-mobile-hidden{
+    display: block;
   }
 
   p.game-content{
@@ -263,4 +268,16 @@ div.flex-inline {
   width: 33%;
 }
   /* ---- section ---- */
+  
+  @media (min-width: 786px) {
+    .container {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    .right-mobile-hidden, .left-mobile-hidden {
+      display: none;
+     
+    }
+}
+  
   
