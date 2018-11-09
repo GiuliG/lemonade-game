@@ -84,11 +84,10 @@ html {
     border-color: #3B8EA5;
     color: #ffffff;
     border-radius: 10px 4px;
-    width: 100%;
-    padding: 19px 40px 20px;
+    width: 50%;
+    padding: 20px;
     display: block;
     text-align: center;
-    max-width: 767px;
     text-decoration:none;
     font-size: 20px;
     display: inline-block;
@@ -267,6 +266,19 @@ html {
 div.flex-inline {
   width: 33%;
 }
+
+
+#game-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#game-buttons button {
+  width: 45%;
+}
+
+
   /* ---- section ---- */
   
   @media (min-width: 786px) {
@@ -277,6 +289,10 @@ div.flex-inline {
     .right-mobile-hidden, .left-mobile-hidden {
       display: none;
      
+    }
+
+    button {
+      width: 90%;
     }
 }
   

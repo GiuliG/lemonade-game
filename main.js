@@ -103,9 +103,13 @@ function toggleList () {
             <p class="message"></p>  
           </div>  
           <canvas width="900px" height="500px"></canvas> 
-          <div>
-          <button class="right-mobile-hidden">Right -></button>
-          <button class="left-mobile-hidden"><- Left</button>
+          <div id="game-buttons">
+            
+              <button class="right-mobile-hidden">Right</button>
+           
+            
+              <button class="left-mobile-hidden">Left</button>
+           
           </div>
         </div>
        
