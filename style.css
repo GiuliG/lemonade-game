@@ -74,7 +74,8 @@ html {
       margin-left: auto;
       margin-right: auto;
       display: block;
-      padding-bottom: 30px;
+      padding-top: 60px;
+      padding-bottom: 20px:
 
      
    }
@@ -210,7 +211,7 @@ html {
   }
 
   .game-content{
-    padding-top: 70px;
+    padding-top: 10px;
   }
 
   .button-alt {
