@@ -1,32 +1,32 @@
 'use strict'
 
-function buildDOM(html) {
-  var div = document.createElement('div');
-  div.innerHTML = html;
-  return div.children[0]; // this means we are adding our blocks inside the body of the HTML
+function buildDOM (html) {
+  var div = document.createElement('div')
+  div.innerHTML = html
+  return div.children[0] // this means we are adding our blocks inside the body of the HTML
 }
 
-function main() {
+function main () {
 // we select the elements in the DOM
-  var splashScreen;
-  var gameScreen;
-  var gameOverScreen;
-  var startButton;
-  var restartButton;
-  var livesElement;
-  var scoreElement;
-  var canvasElement;
-  var game;
-  var messageElement;
-  var rulesButton;
-  var rulesExpand;
-  var rulesList;
-  var rulesSpan;
+  var splashScreen
+  var gameScreen
+  var gameOverScreen
+  var startButton
+  var restartButton
+  var livesElement
+  var scoreElement
+  var canvasElement
+  var game
+  var messageElement
+  var rulesButton
+  var rulesExpand
+  var rulesList
+  var rulesSpan
 
   
 
   // the  homepage
-  function buildSplash() {
+  function buildSplash () {
     splashScreen = buildDOM(`
     <main>
         <div class="container">
@@ -54,43 +54,40 @@ function main() {
     </main>
     `)
 
-    document.body.prepend(splashScreen);
+    document.body.prepend(splashScreen)
 
-    startButton = document.querySelector('.play');
-    startButton.addEventListener('click', destroySplash);
+    startButton = document.querySelector('.play')
+    startButton.addEventListener('click', destroySplash)
     
-    rulesExpand = document.querySelector('#rules-expand');
-    rulesSpan = document.querySelector('#rules-expand span');
-    rulesList = document.querySelector('#rules-collapse');
+    rulesExpand = document.querySelector('#rules-expand')
+    rulesSpan = document.querySelector('#rules-expand span')
+    rulesList = document.querySelector('#rules-collapse')
 
-    rulesExpand.addEventListener('click', toggleList);
+    rulesExpand.addEventListener('click', toggleList)
 
 
   }
 
-
- // hidden
-function toggleList () {
-  var rules = document.querySelector('#rules-collapse');
-  rules.classList.toggle('hidden');
+  // hidden
+  function toggleList () {
+    var rules = document.querySelector('#rules-collapse')
+  rules.classList.toggle('hidden')
   if (rules.classList.contains('hidden')) {
-    rulesSpan.innerText = "+";
-  } else {
-    rulesSpan.innerText = "-";
-  };
-}
-
-
+      rulesSpan.innerText = '+';
+    } else {
+      rulesSpan.innerText = '-';
+    };
+  }
 
   // remove the hompage and replace it with the one from the game
-  function destroySplash() {
-    splashScreen.remove();
-    startButton.removeEventListener('click', destroySplash);
-    buildGameScreen();
+  function destroySplash () {
+    splashScreen.remove()
+    startButton.removeEventListener('click', destroySplash)
+    buildGameScreen()
   }
 
   // game page
-  function buildGameScreen() {
+  function buildGameScreen () {
     gameScreen = buildDOM(`
       <main class="game">
         <div class="wrapper">
@@ -114,15 +111,15 @@ function toggleList () {
         </div>
        
       </main>
-    `);
+    `)
 
-    document.body.prepend(gameScreen);
+    document.body.prepend(gameScreen)
 
-    canvasElement = document.querySelector('canvas');
+    canvasElement = document.querySelector('canvas')
     //lives can be found here
-    livesElement = document.querySelector('.lives');
-    scoreElement = document.querySelector('p.score');
-    messageElement = document.querySelector('.message');
+    livesElement = document.querySelector('.lives')
+    scoreElement = document.querySelector('p.score')
+    messageElement = document.querySelector('.message')
   
     
     /*var timeLeft = 30;
@@ -138,49 +135,42 @@ function toggleList () {
     */
 
     
-    game = new Game(canvasElement);
-    game.start(); 
-    game.onGameOverCallback(destroyGameScreen);
-    game.onLiveLost(updateLives);
-    game.onPoints(updateScore);
-    game.messageSend(updateMessage);
+    game = new Game(canvasElement)
+    game.start() 
+    game.onGameOverCallback(destroyGameScreen)
+    game.onLiveLost(updateLives)
+    game.onPoints(updateScore)
+    game.messageSend(updateMessage)
 
   }
 
-
-
-
-//update lives
-  function updateLives(lives) {
-    livesElement.innerText = lives;
+  // update lives
+  function updateLives (lives) {
+    livesElement.innerText = lives
   }
-// update score
-  function updateScore(score) {
-    scoreElement.innerText = score;
+  // update score
+  function updateScore (score) {
+    scoreElement.innerText = score
   }
 
-// update message
-function updateMessage (message) {
-  messageElement.innerText = message;
-  messageElement.classList.add('show');
-  setTimeout(function(){
-    messageElement.classList.remove('show');
-  },2000);
+  // update message
+  function updateMessage (message) {
+    messageElement.innerText = message
+  messageElement.classList.add('show')
+  setTimeout(function () {
+      messageElement.classList.remove('show')
+  }, 2000)
 
 }
 
-
-
-  
   // remove game screen and move to game over
-  function destroyGameScreen() {
-    gameScreen.remove();
-    buildGameOverScreen();
+  function destroyGameScreen () {
+    gameScreen.remove()
+    buildGameOverScreen()
   }
 
-
   //  game over page
-  function buildGameOverScreen() {
+  function buildGameOverScreen () {
     gameOverScreen = buildDOM(`
     <main >
       <div>&nbsp</div>
@@ -195,27 +185,25 @@ function updateMessage (message) {
 
 
     </main>  
-    `);
+    `)
 
-    document.body.prepend(gameOverScreen);
+    document.body.prepend(gameOverScreen)
 
-    restartButton = document.querySelector('button');
+    restartButton = document.querySelector('button')
 
     restartButton.addEventListener('click', destroyGameOverScreen)
-
   }
   // remove game over page and go back to the game
-  function destroyGameOverScreen() {
-    gameOverScreen.remove();
+  function destroyGameOverScreen () {
+    gameOverScreen.remove()
 
     restartButton.removeEventListener('click', destroyGameOverScreen)
 
-    buildGameScreen();
+    buildGameScreen()
   }
 
-  buildSplash();
+  buildSplash()
 
 }
 
-window.addEventListener('load', main);
-
+window.addEventListener('load', main)

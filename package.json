@@ -1,0 +1,27 @@
+{
+  "name": "lemonade-game",
+  "version": "1.0.0",
+  "description": "## Description When life gives you lemons, make lemonade! Your task is to catch lemons and sugar cubes to make amazing lemonades. The player cannot have a negative score; this means that when your score reaches 0, the game is over.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarloMorgan/lemonade-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarloMorgan/lemonade-game/issues"
+  },
+  "homepage": "https://github.com/MarloMorgan/lemonade-game#readme",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
